@@ -1,0 +1,32 @@
+# not Zero-Installs:
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+# dist, dependencies, binaries...
+node_modules/
+dist/
+.next/
+out/
+build/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local files
+.DS_Store
+.vercel
+
+
+# # Zero-Installs:
+# .yarn/*
+# !.yarn/cache
+# !.yarn/releases
+# !.yarn/plugins
+# !.yarn/sdks
+# !.yarn/versions

@@ -1,0 +1,12 @@
+{
+  "name": "works",
+  "version": "0.0.1",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build:clean": "sudo rm -rf packages/cli/dist packages/ssr/next packages/utils/dist",
+    "build": "yarn workspace @luar/utils run build && yarn workspace @luar/ssr run dev",
+    "git:format": "sudo rm -rf .git packages/ssr/.git packages/utils/.git packages/cli/.git"
+  }
+}
