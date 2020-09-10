@@ -13,7 +13,7 @@
   "dependencies": {
     "@apollo/client": "^3.0.2",
     "@hapi/iron": "^6.0.0",
-    "@luar/utils": "workspace:packages/utils",
+    "@luar/utils": "rauleite/mono#link=packages/utils",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
