@@ -1,4 +1,9 @@
 # Canvas Workspace
 
-"@luar/utils": "workspace:packages/utils",
-"@luar/utils": "rauleite/mono#workspace=@luar/utils",
+"@rauleite/utils": "workspace:packages/utils",
+"@rauleite/utils": "rauleite/mono#workspace=packages/utils",
+"@rauleite/utils": "rauleite/mono#link=packages/utils",
+
+"@rauleite/utils": "rauleite/mono#workspace=@rauleite/utils",
+
+"main": "dist/index.js",

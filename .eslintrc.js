@@ -18,6 +18,7 @@ module.exports = {
     // 'react-hooks/rules-of-hooks': 'error',
     // 'react-hooks/exhaustive-deps': 'warn',
     // 'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'import/no-extraneous-dependencies': 0,
     'consistent-return': 0,
     'no-unused-vars': 1,
   },

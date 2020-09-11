@@ -1,13 +1,25 @@
 {
-  "name": "mono",
+  "name": "@rauleite/mono",
   "version": "0.0.1",
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "build:clean": "sudo rm -rf packages/cli/dist packages/ssr/next packages/utils/dist",
-    "build": "yarn workspace @luar/utils run build && yarn workspace @luar/ssr run dev",
-    "git:format": "sudo rm -rf .git packages/ssr/.git packages/utils/.git packages/cli/.git",
-    "clean:installs": "sudo rm -rf node_modules .yarn yarn.lock .pnp.js .yarnrc.yml packages/ssr/node_modules packages/utils/node_modules packages/cli/node_modules"
-  }
+    "build:clean": "sudo rm -rf packages/ssr/.next packages/utils/dist packages/components/dist",
+    "build": "yarn workspace @rauleite/utils run build && yarn workspace @rauleite/ssr run dev",
+    "git:format": "sudo rm -rf .git packages/ssr/.git packages/utils/.git packages/components/.git",
+    "clean:installs": "sudo rm -rf node_modules .yarn yarn.lock .pnp.js .yarnrc.yml packages/ssr/node_modules packages/utils/node_modules packages/components/node_modules",
+    "publish:utils": "yarn workspace @rauleite/utils npm publish --access public"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rauleite/mono.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rauleite/mono/issues"
+  },
+  "homepage": "https://github.com/rauleite/mono#readme"
 }

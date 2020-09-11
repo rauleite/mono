@@ -2,7 +2,6 @@ import React, {
   useRef, useEffect,
 } from 'react';
 
-import { Button } from '@rauleite/components';
 import useFabric from './useFabric';
 
 import { constants } from '../../src/utils/screen';
@@ -84,7 +83,6 @@ const CardBusiness = () => {
       }}
     >
       <>
-        <Button />
         <canvas
           ref={fabricRef}
           width={area.width}

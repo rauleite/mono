@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "✨ @rauleite/mono",
+			"path": "."
+		},
+		{
+			"name": "📦 @rauleite/ssr",
+			"path": "packages/ssr"
+		},
+		{
+			"name": "📦 @rauleite/utils",
+			"path": "packages/utils"
+		},
+		{
+			"name": "📦 @rauleite/components",
+			"path": "packages/components"
+		}
+	],
+	"settings": {}
+}

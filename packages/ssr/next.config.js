@@ -1,4 +1,6 @@
 const withOffline = require('next-offline');
+// const withTM = require('next-transpile-modules')(['../components']);
+const withTM = require('next-transpile-modules')(['@rauleite/components']);
 
 const nextConfig = {
   target: 'serverless',
@@ -28,4 +30,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withOffline(nextConfig);
+module.exports = withOffline(withTM(nextConfig));

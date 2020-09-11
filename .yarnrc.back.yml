@@ -1,0 +1,12 @@
+yarnPath: ".yarn/releases/yarn-berry.js"
+
+nodeLinker: node-modules
+
+npmPublishAccess: "public"
+
+npmScopes:
+  rauleite:
+    # npmAlwaysAuth: true
+    npmAuthToken: "a11651735aeec502714abe39c072c5e356f5d72e"
+    npmPublishRegistry: "https://npm.pkg.github.com"
+    npmRegistryServer: "https://npm.pkg.github.com"

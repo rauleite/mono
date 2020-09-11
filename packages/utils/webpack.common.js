@@ -1,12 +1,23 @@
+// /* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
   entry: './index.js',
-  mode: 'development',
-  devtool: 'eval-cheap-module-source-map',
   target: 'node',
+
+  // // ------------------------------------------------------------------
+
+  // mode: 'development',
+  // devtool: 'eval-cheap-module-source-map',
+
+  // // ------------------------------------------------------------------
+
   externals: [nodeExternals()],
+  plugins: [
+    new CleanWebpackPlugin(),
+  ],
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
@@ -25,21 +36,11 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', {
-              // targets: {
-              //   esmodules: true,
-              // },
-            }],
+            presets: ['@babel/preset-env'],
             plugins: ['@babel/plugin-transform-runtime'],
           },
         },
       },
-      // {
-      //   test: /\.js$/,
-      //   exclude: /(node_modules)/,
-      //   enforce: 'pre',
-      //   use: ['source-map-loader'],
-      // },
     ],
   },
 };
