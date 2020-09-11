@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core';
-import Link from '../../src/Link';
+import Link from '../Link';
 import pages from './pages';
 
 const useStyles = makeStyles((theme) => ({

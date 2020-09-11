@@ -6,14 +6,6 @@ const nodeExternals = require('webpack-node-externals');
 module.exports = {
   entry: './index.js',
   target: 'node',
-
-  // // ------------------------------------------------------------------
-
-  // mode: 'development',
-  // devtool: 'eval-cheap-module-source-map',
-
-  // // ------------------------------------------------------------------
-
   externals: [nodeExternals()],
   plugins: [
     new CleanWebpackPlugin(),

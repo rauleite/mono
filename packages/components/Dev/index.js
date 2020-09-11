@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import dynamic from 'next/dynamic';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core';
-import { isDev } from '../../src/utils';
+import { isDev } from '@rauleite/utils/utils';
 
 // Call only in dev env
 // eslint-disable-next-line react/prop-types

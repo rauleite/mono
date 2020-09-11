@@ -1,8 +1,8 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import MenuItem from '@material-ui/core/MenuItem';
+import { isServer } from '@rauleite/utils/utils';
 import pages from '../../pages';
-import { isServer } from '../../../../src/utils';
 
 // https://stackoverflow.com/a/56309771 – forwardRef
 const ItemsPages = React.forwardRef((props, ref) => {

@@ -1,6 +1,6 @@
 import React from 'react';
+import storage from '@rauleite/utils/storage';
 import { themes, getInitTheme } from './utils';
-import storage from '../../src/utils/storage';
 
 export const ThemeContext = React.createContext({});
 

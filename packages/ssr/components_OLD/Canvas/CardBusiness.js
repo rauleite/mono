@@ -2,7 +2,7 @@ import React, {
   useRef, useEffect,
 } from 'react';
 
-import { Button } from '@rauleite/components';
+import Button from '@rauleite/components/Button';
 import useFabric from './useFabric';
 
 import { constants } from '../../src/utils/screen';

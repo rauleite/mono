@@ -1,5 +1,6 @@
 import { useRef, useCallback } from 'react';
-import { loadScript } from '../../src/utils';
+// import { loadScript } from '../../src/utils';
+import { loadScript } from '@rauleite/utils/utils';
 
 const useFabric = (onChange) => {
   const fabricRef = useRef();

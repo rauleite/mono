@@ -2,10 +2,10 @@ import React, {
   useRef, useEffect,
 } from 'react';
 
+import { aspectRatio } from '@rauleite/utils/card';
 import useFabric from './useFabric';
 
-import { constants } from '../../src/utils/screen';
-import { aspectRatio } from '../../src/utils/card';
+// import { constants } from '../../src/utils/screen';
 
 /**
  * Componentes como Web Elements, sempre devem ser importados dinamicamente:
@@ -16,12 +16,13 @@ import { aspectRatio } from '../../src/utils/card';
   );
   ```
  */
-const CardBusiness = () => {
+const CardBusiness = ({ drawerWidth }) => {
+  console.log('CardBusiness -> drawerWidth', drawerWidth);
   const divRef = useRef();
   const canvasRef = useRef();
   const area = aspectRatio({
     width: document.documentElement.offsetWidth,
-    desconto: (constants.DRAWER_WIDTH + 24) * 2,
+    desconto: (drawerWidth + 24) * 2,
   });
 
   const canvasSize = ({ width, height }) => {

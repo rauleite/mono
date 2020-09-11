@@ -4,9 +4,10 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import { ApolloProvider } from '@apollo/client';
 import { useTheme } from '@material-ui/core';
+import CustomThemeProvider from '@rauleite/components/Theme/CustomThemeProvider';
 import { useApollo } from '../apollo/client';
 
-import CustomThemeProvider from '../components/Theme/CustomThemeProvider';
+// import CustomThemeProvider from '../components/Theme/CustomThemeProvider';
 
 // eslint-disable-next-line react/prop-types
 export default function App({ Component, pageProps }) {

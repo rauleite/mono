@@ -1,8 +1,8 @@
 import {
   cyan, red, purple, indigo, grey,
 } from '@material-ui/core/colors';
-import { isServer } from '../../src/utils';
-import storage from '../../src/utils/storage';
+import { isServer } from '@rauleite/utils/utils';
+import storage from '@rauleite/utils/storage';
 
 export const THEME_TYPE = Object.freeze({
   dark: 'dark',
@@ -13,9 +13,6 @@ const themeTypeConfig = (themeType = 'light', cb) => {
   const isLight = themeType === 'light';
   return Object.freeze(cb((light, dark) => (isLight ? light : dark)));
 };
-
-// export const palette = Object.freeze({
-// });
 
 export const themes = {
   cyan: (themeType) => themeTypeConfig(themeType, (isLight) => ({

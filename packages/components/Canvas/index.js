@@ -20,10 +20,10 @@ import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import dynamic from 'next/dynamic';
-import { constants } from '../../src/utils/screen';
+// import { constants } from '../../src/utils/screen';
 // import CardBusinessSkeleton from './CardBusinessSkeleton';
 
-const drawerWidth = constants.DRAWER_WIDTH;
+// const drawerWidth = constants.DRAWER_WIDTH;
 
 const isTopOrBottom = (anchor) => anchor === 'top' || anchor === 'bottom';
 const isLeft = (anchor) => anchor === 'left';
@@ -43,7 +43,7 @@ const appBarTransition = (theme) => ({
   }),
 });
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = (drawerWidth) => makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
@@ -110,8 +110,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Canvas = () => {
-  const classes = useStyles();
+const Canvas = ({ drawerWidth }) => {
+  console.log('Canvas -> drawerWidth', drawerWidth);
+  const classes = useStyles(drawerWidth);
   const [state, setState] = React.useState({
     top: false,
     left: true,
@@ -267,7 +268,7 @@ const Canvas = () => {
             <main>
               {/* <div className="MuiToolbar-dense" /> */}
               <Box>
-                <CardBusiness />
+                <CardBusiness drawerWidth={500} />
 
               </Box>
               <Typography paragraph>
@@ -310,4 +311,4 @@ const Canvas = () => {
   );
 };
 
-export default Canvas
+export default Canvas;
