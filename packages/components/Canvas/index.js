@@ -20,14 +20,10 @@ import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import dynamic from 'next/dynamic';
-// import { constants } from '../../src/utils/screen';
 // import CardBusinessSkeleton from './CardBusinessSkeleton';
-
-// const drawerWidth = constants.DRAWER_WIDTH;
 
 const isTopOrBottom = (anchor) => anchor === 'top' || anchor === 'bottom';
 const isLeft = (anchor) => anchor === 'left';
-// const isRight = (anchor) => anchor === 'right';
 
 const transitionShift = (theme) => ({
   transition: theme.transitions.create('margin', {
@@ -112,7 +108,7 @@ const useStyles = (drawerWidth) => makeStyles((theme) => ({
 
 const Canvas = ({ drawerWidth }) => {
   console.log('Canvas -> drawerWidth', drawerWidth);
-  const classes = useStyles(drawerWidth);
+  const classes = useStyles(drawerWidth)();
   const [state, setState] = React.useState({
     top: false,
     left: true,

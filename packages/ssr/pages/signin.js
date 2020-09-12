@@ -2,9 +2,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { gql, useMutation, useApolloClient } from '@apollo/client';
-import { CssBaseline } from '@material-ui/core';
+import Field from '@rauleite/components/field';
 import { getErrorMessage } from '../lib/form';
-import Field from '../components/field';
 
 const SignInMutation = gql`
   mutation SignInMutation($email: String!, $password: String!) {
