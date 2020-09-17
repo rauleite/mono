@@ -3,7 +3,7 @@ import React from 'react';
 import Canvas from '@rauleite/components/Canvas';
 
 const IndexCanvas = () => (
-  <Canvas drawerWidth={500} />
+  <Canvas drawerWidth={300} />
 );
 
 export default IndexCanvas;

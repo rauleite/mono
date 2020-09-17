@@ -5,25 +5,34 @@
     "license": "MIT",
     "main": "index.js",
     "scripts": {
-        "doc": "start-storybook"
+        "doc": "start-storybook",
+        "test": "jest"
     },
     "devDependencies": {
         "@babel/core": "^7.11.6",
         "@babel/preset-env": "^7.11.5",
         "@babel/preset-react": "^7.10.4",
+        "@material-ui/core": "^4.11.0",
+        "@material-ui/lab": "^4.0.0-alpha.56",
         "@rauleite/utils": "workspace:packages/utils",
-        "@storybook/addon-knobs": "^6.0.21",
+        "@storybook/addon-controls": "^6.0.21",
         "@storybook/react": "^6.0.21",
+        "@testing-library/jest-dom": "^5.11.4",
+        "@testing-library/react": "^11.0.4",
+        "add": "^2.0.6",
+        "babel-jest": "^26.3.0",
         "babel-loader": "^8.1.0",
         "clean-webpack-plugin": "^3.0.0",
+        "eslint-plugin-jest-dom": "^3.2.3",
+        "eslint-plugin-testing-library": "^3.8.0",
+        "jest": "^26.4.2",
         "node-sass": "^4.14.1",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
         "sass-loader": "^10.0.2",
         "webpack": "^4.44.1",
         "webpack-cli": "^3.3.12",
         "webpack-node-externals": "^2.5.2",
-        "@material-ui/core": "^4.11.0",
-        "@material-ui/lab": "^4.0.0-alpha.56",
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1"
+        "yarn": "^1.22.5"
     }
 }

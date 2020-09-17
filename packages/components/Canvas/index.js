@@ -3,27 +3,15 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import dynamic from 'next/dynamic';
+import AppDrawer from '../AppDrawer';
 // import CardBusinessSkeleton from './CardBusinessSkeleton';
-
-const isTopOrBottom = (anchor) => anchor === 'top' || anchor === 'bottom';
-const isLeft = (anchor) => anchor === 'left';
+import { canvasState, toggleDrawer } from './canvas';
 
 const transitionShift = (theme) => ({
   transition: theme.transitions.create('margin', {
@@ -73,20 +61,6 @@ const useStyles = (drawerWidth) => makeStyles((theme) => ({
     width: `calc(100% - ${drawerWidth * 2}px)`,
     marginRight: drawerWidth,
   },
-  list: {
-    width: drawerWidth,
-  },
-  fullList: {
-    width: 'auto',
-  },
-  drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    // ...theme.mixins.toolbar,
-    // justifyContent: "flex-end",
-  },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
@@ -107,60 +81,10 @@ const useStyles = (drawerWidth) => makeStyles((theme) => ({
 }));
 
 const Canvas = ({ drawerWidth }) => {
-  console.log('Canvas -> drawerWidth', drawerWidth);
   const classes = useStyles(drawerWidth)();
-  const [state, setState] = React.useState({
-    top: false,
-    left: true,
-    bottom: false,
-    right: true,
-  });
+  const [state, setState] = React.useState(canvasState);
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event
-      && event.type === 'keydown'
-      && (event.key === 'Tab' || event.key === 'Shift')
-    ) {
-      return;
-    }
-
-    setState({ ...state, [anchor]: open });
-  };
-
-  const list = (anchor) => (
-    <div
-      className={clsx(classes.list, {
-        // [classes.fullList]: anchor === "top" || anchor === "bottom",
-        [classes.fullList]: isTopOrBottom(anchor),
-      })}
-      role="presentation"
-      onClick={isTopOrBottom(anchor) ? toggleDrawer(anchor, false) : null}
-      // onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-    </div>
-  );
+  const canvasToggleDrawer = toggleDrawer(state, setState);
 
   const CardBusiness = dynamic(
     () => import('./CardBusiness'),
@@ -171,7 +95,6 @@ const Canvas = ({ drawerWidth }) => {
   );
 
   return (
-    // <div className={classes.root}>
     <>
       <CssBaseline />
       <AppBar
@@ -186,7 +109,8 @@ const Canvas = ({ drawerWidth }) => {
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={toggleDrawer('left', true)}
+            // onClick={toggleDrawer('left', true)}
+            onClick={canvasToggleDrawer('left', true)}
             edge="start"
             className={clsx(classes.menuButtonLeft, state.left && classes.hide)}
           >
@@ -199,7 +123,7 @@ const Canvas = ({ drawerWidth }) => {
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={toggleDrawer('right', true)}
+            onClick={canvasToggleDrawer('right', true)}
             edge="start"
             className={clsx(
               classes.menuButtonRight,
@@ -221,44 +145,11 @@ const Canvas = ({ drawerWidth }) => {
           })}
         >
           <Box>
-            {['left', 'right', 'top', 'bottom'].map((anchor) => (
-              <React.Fragment key={anchor}>
-                {isTopOrBottom(anchor) ? (
-                  <Button onClick={toggleDrawer(anchor, !state[anchor])}>
-                    {anchor}
-                  </Button>
-                ) : null}
-                <Drawer
-                  anchor={anchor}
-                  open={state[anchor]}
-                  variant={isTopOrBottom(anchor) ? 'temporary' : 'persistent'}
-                  onClose={toggleDrawer(anchor, false)}
-                >
-                  {!isTopOrBottom(anchor) && (
-                    <>
-                      <div
-                        className={('MuiToolbar-dense', classes.drawerHeader)}
-                        style={
-                          isLeft(anchor)
-                            ? { justifyContent: 'flex-end' }
-                            : { justifyContent: 'start' }
-                        }
-                      >
-                        <IconButton onClick={toggleDrawer(anchor, false)}>
-                          {isLeft(anchor) ? (
-                            <ChevronLeftIcon />
-                          ) : (
-                            <ChevronRightIcon />
-                          )}
-                        </IconButton>
-                      </div>
-                      <Divider />
-                    </>
-                  )}
-                  {list(anchor)}
-                </Drawer>
-              </React.Fragment>
-            ))}
+            <AppDrawer
+              toggleDrawer={canvasToggleDrawer}
+              state={state}
+              drawerWidth={drawerWidth}
+            />
           </Box>
           <Box>
             <main>

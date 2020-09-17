@@ -2,8 +2,17 @@ module.exports = {
   env: {
     browser: true,
     es2020: true,
+    jest: true
+
   },
-  extends: ['plugin:react/recommended', 'airbnb'],
+  extends: [
+    'airbnb',
+    'jest-dom',
+    'plugin:react/recommended',
+    'plugin:testing-library/react',
+    'plugin:testing-library/recommended',
+    'plugin:jest-dom/recommended'
+  ],
   parser: 'babel-eslint',
 
   parserOptions: {
@@ -13,7 +22,11 @@ module.exports = {
     ecmaVersion: 11,
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks'],
+  plugins: [
+    'react',
+    'react-hooks',
+    'testing-library',
+  ],
   rules: {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
