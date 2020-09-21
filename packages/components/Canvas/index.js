@@ -147,7 +147,7 @@ const Canvas = ({ drawerWidth }) => {
           <Box>
             <AppDrawer
               toggleDrawer={canvasToggleDrawer}
-              state={state}
+              anchors={state}
               drawerWidth={drawerWidth}
             />
           </Box>

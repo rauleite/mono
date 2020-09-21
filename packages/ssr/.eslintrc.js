@@ -3,7 +3,14 @@ module.exports = {
     browser: true,
     es2020: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb'],
+  extends: [
+    'plugin:react/recommended',
+    'airbnb',
+    'jest-dom',
+    'plugin:testing-library/react',
+    'plugin:testing-library/recommended',
+    'plugin:jest-dom/recommended',
+  ],
   parser: 'babel-eslint',
 
   parserOptions: {
