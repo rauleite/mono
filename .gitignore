@@ -22,7 +22,9 @@ yarn-error.log*
 .DS_Store
 .vercel
 
-
+# temp files
+lighthouse*.json
+coverage/
 # # Zero-Installs:
 # .yarn/*
 # !.yarn/cache
