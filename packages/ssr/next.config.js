@@ -1,10 +1,33 @@
 const withOffline = require('next-offline');
-const withTM = require('next-transpile-modules')([
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
+const withTranspileModules = require('next-transpile-modules')([
   '@rauleite/components',
   '@rauleite/utils',
 ]);
 
-const nextConfig = {
+const webpack = (config, { dev, isServer }) => {
+  // const optimization = isServer ? { ...config.optimization, minimize: true } : config.optimization;
+
+  const newConfig = {
+    ...config,
+    // optimization,
+  };
+
+  // console.log('webpack -> newConfig.optimization', newConfig.optimization);
+
+  return newConfig;
+};
+
+// const generalConfig = {
+//   performance: {
+//     hints: 'warning',
+//   },
+// };
+
+const offlineConfig = {
   target: 'serverless',
   transformManifest: (manifest) => ['/'].concat(manifest), // add the homepage to the cache
   // Trying to set NODE_ENV=production when running yarn dev causes a build-time error so we
@@ -32,4 +55,13 @@ const nextConfig = {
   },
 };
 
-module.exports = withOffline(withTM(nextConfig));
+// withTranspileModules showuld always be the last param
+module.exports = withBundleAnalyzer(
+  withOffline(
+    withTranspileModules({
+      ...offlineConfig,
+      // ...generalConfig,
+      webpack,
+    }),
+  ),
+);

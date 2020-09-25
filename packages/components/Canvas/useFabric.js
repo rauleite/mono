@@ -9,8 +9,8 @@ const useFabric = (onChange) => {
   return useCallback(async (node) => {
     if (!window.fabric) {
       await loadScript({
-        src: 'https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.0.0-rc.1/fabric.min.js',
-        integrity: 'sha512-rKF82ziMDgkkUwTBlsQhy6Dzdyydg5ikvL1zueWJ6SQxzXaqPY85rEiRvJymMI5YiQqyvm0+mlVYb5tLjmslQA==',
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.1.0/fabric.min.js',
+        integrity: 'sha512-T9uV3LxV54oKVYSwORGeHdJ1Ti0WcQvDjAaTvMS6+qfrI5ZRzwxfXVzr7fqodTjfZ6wtbreT5A+65ykwbp4DOw==',
         instanceTest: window.fabric,
       });
     }

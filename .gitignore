@@ -25,10 +25,4 @@ yarn-error.log*
 # temp files
 lighthouse*.json
 coverage/
-# # Zero-Installs:
-# .yarn/*
-# !.yarn/cache
-# !.yarn/releases
-# !.yarn/plugins
-# !.yarn/sdks
-# !.yarn/versions
+analyze/
